@@ -34,4 +34,12 @@ Once all the images and their class are stored in X_data, and y_data, I used skl
 
 I train the model using the training set via 2 epochs.  I also set validation to .2 so that 20% of the training set will be used as validation so that I can see if the model is overtrained.
 
+After the training is done, I score the model using the test set. The model scored 99.7%.  
 
+# Implement a sliding-window technique:
+I implement the sliding window by selecting patches in a image from up down and left right.  Because the road is at the bottom of the image, the starting point for y I select to be 350.  The patch size started out to be 90X90.  However, as the patch y value increase (going down), the patch size increases.  The equation I used for patch size is 90+(y-350) where y is the top of the patch).  The stridex (stride in x direction) also increase as the patch size increase, the equation i used for stridex is 2+(y-350).  The stridey is set to 25.  Everytime I get a new patch, I resize the image to 64,64 to allow for the model to classify.  When the model predict each frame, it will assign a probability if the frame has a car.  However, there are times that the model is incorrect.  There might be false positive(predict car when no car exist) or false negative(predict non-car when car exist).  I solve this problem by using heat map.  The idea of a heat map is that as the sliding window goes through each frame, adjacent frame for a car will classify as a car, the heat map will stack up all the prediction so that one can see the spot where the car prediction appear alot of times.  This way, even if there are some false postive or false negative, as long as the model is good, the overall result will be accurate.  
+
+![sliding window](https://github.com/Tak-Au/Vehicle-Detection/blob/master/download.png "Sliding window")
+
+# Implement Heat Map:
+To creat a heat map, 
