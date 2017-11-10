@@ -42,4 +42,12 @@ I implement the sliding window by selecting patches in a image from up down and 
 ![sliding window](https://github.com/Tak-Au/Vehicle-Detection/blob/master/download.png "Sliding window")
 
 # Implement Heat Map:
-To creat a heat map, 
+To creat a heat map, I create an matrix of zeros with size match with the image.  Then I add each cells within a patch of the heat map with the model probablity value of the image frame.  The value will stack up as the sliding window goes through the heat map.  
+
+One the heat map is built, I can use a threshold value to reset all cell value < threshold to zero.  The one non zero values will show where the car was detected.  Then I used the labeled_bboxes function to find all boxes where the value is non zeros.  The boxes will be the location where the model believe the car exist.  However, I find that even with heat map, there can still be false postive.  The reason is because the threshold value can't set too high or too low.  Too high will cause more false negative and too low will cause false postive.  
+
+To combact false negative, I use the boxes that the heat map generated to extract patch within the image and use the model to perform prediction again.  This time the set the threshold of the prediction so that if the result comes out to be > 95% then it will classify the fame to be truly a car.
+
+Then I draw the frame with the prob value on top of the frame to the Image.  
+
+
