@@ -9,7 +9,19 @@
 # Create and train deep learning model to classify car vs non-car:
 To create a deep learning model, I used keras and transfering learning.  
 
-First I start with a base model from Xception(Cell 6). The base model includes all the convolution layers.  Then I added GlobalMaxPooling2D layer and (2) dense layers.  The last dense layer has only 1 neuron with simgoid function.  This will allow the model to generate percentage if the image is non-car (0) or car (1).  
+First I defined a sequential model.  I added a Lambda layer to normalize the input data so that the mean is zero and the data is +/- 0.5.  Then I added an Xception model without top(meaning all the fully connected layer are not included).  Then I added GlobalMaxPooling2D(), and 2 dense layers.  The last dense layer will only have one neuron so that it predict if the input data is a car or not. (0 = non-car, 1 = car).
+
+| Layer (type)  | Output Shape  |  Param # |
+| ------------- | ------------- |----------|
+| lambda_1 (Lambda)  | (None, 64, 64, 3)  | 0 |
+| xception (Model) | multiple  |20861480|
+| global_max_pooling | (None, 2048)  |0|
+| dense_1 (Dense) | (None, 1024)   |2098176|
+| dense_2 (Dense) | (None, 1)  |1025|
+
+Total params: 22,960,681
+Trainable params: 22,906,153
+Non-trainable params: 54,528
 
 Once the model is built.  I train the model with the dataset.
 The dataset has images (64X64) of car and non-car.  The non-car may include road, trees, guardrails.etc.  
