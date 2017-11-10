@@ -17,4 +17,6 @@ I used opencv to read all images and store the image as X_data.  I assign 0 for 
 I also augment the images by flipping vertical and horizontal.  I also augment by resizing the image.(Cell 3)    
 Once all the images and their class are stored in X_data, and y_data, I used sklearn to split the data to training set and testing set (80% and 20% respectively). 
 
-I train the model using the training set.  I used 2 epochs.  
+I train the model using the training set via 2 epochs.  I also set validation to .2 so that 20% of the training set will be used as validation so that I can see if the model is overtrained.
+
+
