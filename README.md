@@ -7,3 +7,11 @@
 4.  Estimate a bounding box for vehicles detected.
 
 # Create and train deep learning model to classify car vs non-car:
+To create a deep learning model, I used keras and transfering learning.  
+
+First I start with a base model from Xception(Cell 6). The base model includes all the convolution layers.  Then I added GlobalMaxPooling2D layer and (2) dense layers.  The last dense layer has only 1 neuron with simgoid function.  This will allow the model to generate percentage if the image is non-car (0) or car (1).  
+
+Once the model is built.  I train the model with the dataset.
+The dataset has images (64X64) of car and non-car.  The non-car may include road, trees, guardrails.etc.  
+I used opencv to read all images and store the image as X_data.  I assign 0 for non-car and 1 for car and store in y_data.  
+I also augment the images by flipping vertical and horizontal.  I also augment by resizing the image.(Cell 3)    
