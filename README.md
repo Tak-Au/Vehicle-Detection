@@ -25,8 +25,8 @@ Non-trainable params: 54,528
 
 Once the model is built.  I train the model with the dataset.
 The dataset has images (64X64) of car and non-car.  The non-car may include road, trees, guardrails.etc.  
-![Non-Car](https://github.com/Tak-Au/Vehicle-Detection/blob/master/extra17.png| width=200)
-![Car](https://github.com/Tak-Au/Vehicle-Detection/blob/master/image0001.png| width=200)
+![Non-Car](https://github.com/Tak-Au/Vehicle-Detection/blob/master/extra17.png {width=40px height=400px})
+![Car](https://github.com/Tak-Au/Vehicle-Detection/blob/master/image0001.png {width=40px height=400px})
 
 I used opencv to read all images and store the image as X_data.  I assign 0 for non-car and 1 for car and store in y_data.  
 I also augment the images by flipping vertical and horizontal.  I also augment by resizing the image.(Cell 3)    
