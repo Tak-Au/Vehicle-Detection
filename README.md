@@ -50,4 +50,4 @@ Oncee the heat map is built, I use a threshold value to reset all cell value < t
 
 To combat false positive, I use the boxes that the heat map generated to extract the patches within the image and use the model to perform prediction again.  This time I set the threshold of the prediction so that if the result comes out to be > 95% confident, then it will classify the fame to be truly a car.  Then I draw the frame with the prob value on top of the frame to the Image. 
 
-
+![Result](https://github.com/Tak-Au/Vehicle-Detection/blob/master/imagewithprob.png "Result")
