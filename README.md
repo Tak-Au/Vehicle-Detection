@@ -59,3 +59,10 @@ This is the result video when using the pipeline.
 https://github.com/Tak-Au/Vehicle-Detection/blob/master/test_videoresultdl.mp4
 
 https://github.com/Tak-Au/Vehicle-Detection/blob/master/project_videoresultdl.mp4
+
+# Discussion
+
+####1. Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?
+The pipeline fails when the car doesn't match the patch frame size.  In order for the pipeline to process the video without too much time, the stride can't be too small.  There's a balance between the speed and accuracy.    
+
+One way to improve the pipeline to use other technique to detect region of interest ROI.  The (2) state of the art model is Faster RCNN and YOLO.  Both technique don't use sliding window, instead, the model will create region proposals where the object may be at.  The speed is also faster than using sliding window.  
