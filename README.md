@@ -57,4 +57,5 @@ To combat false positive, I use the boxes that the heat map generated to extract
 # Result video
 This is the result video when using the pipeline.  
 https://github.com/Tak-Au/Vehicle-Detection/blob/master/test_videoresultdl.mp4
+
 https://github.com/Tak-Au/Vehicle-Detection/blob/master/project_videoresultdl.mp4
