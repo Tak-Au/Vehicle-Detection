@@ -1,5 +1,7 @@
 # Vehicle-Detection
 
+Refer to Project submission.ipynb for the pipeline
+
 # The goals of this project are the following:
 1.  Create and train a deep learning model to classify if patch image is either a car or non-car.
 2.  Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
@@ -51,3 +53,8 @@ Oncee the heat map is built, I use a threshold value to reset all cell value < t
 To combat false positive, I use the boxes that the heat map generated to extract the patches within the image and use the model to perform prediction again.  This time I set the threshold of the prediction so that if the result comes out to be > 95% confident, then it will classify the fame to be truly a car.  Then I draw the frame with the prob value on top of the frame to the Image. 
 
 ![Result](https://github.com/Tak-Au/Vehicle-Detection/blob/master/imagewithprob.png "Result")
+
+# Result video
+This is the result video when using the pipeline.  
+https://github.com/Tak-Au/Vehicle-Detection/blob/master/test_videoresultdl.mp4
+https://github.com/Tak-Au/Vehicle-Detection/blob/master/project_videoresultdl.mp4
